@@ -41,7 +41,7 @@ def on_py_atexit():
 cdef void on_stdlib_atexit() nogil:
     debug_write_c("on_stdlib_atexit().")
     if PYTHON_EXISTS != 0:
-        debug_write_c("ERROR: python atexit not done yet.")
+        debug_write_c(" ************ ERROR: python atexit not done yet. ************")
 
 
 def initialize():

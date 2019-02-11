@@ -8,6 +8,11 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'test_site.settings')
 import uwsgi
 
 
+# NOTE: This is problematic with modules that don't go well with fork():
+from . import aeotst
+aeotst.initialize()
+
+
 def uwsgi_after_fork(*args, **kwargs):
     sys.stderr.write("\n ========= test_site({}): uwsgi_after_fork.\n".format(os.getpid()))
     sys.stderr.flush()
